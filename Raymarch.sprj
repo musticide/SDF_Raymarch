@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<project version="2">
+	<pipeline>
+		<pass name="Simple" type="shader" active="true" patchverts="1">
+			<shader type="vs" path="shaders\Raymarch_SimpleVS.glsl" entry="main" />
+			<shader type="ps" path="shaders\Raymarch_SimplePS.glsl" entry="main" />
+			<inputlayout>
+				<item value="Position" semantic="POSITION" />
+				<item value="Normal" semantic="NORMAL" />
+				<item value="Texcoord" semantic="TEXCOORD0" />
+			</inputlayout>
+			<rendertexture />
+			<items>
+				<item name="Sphere" type="geometry">
+					<type>Sphere</type>
+					<width>5</width>
+					<height>1</height>
+					<depth>1</depth>
+					<topology>TriangleList</topology>
+				</item>
+			</items>
+			<itemvalues />
+			<variables>
+				<variable type="float4x4" name="matVP" system="ViewProjection" />
+				<variable type="float4x4" name="matGeo" system="GeometryTransform" />
+				<variable type="float3" name="SHDCameraPos" system="CameraPosition3" />
+				<variable type="float3" name="SHDCameraDir" system="CameraDirection3" />
+				<variable type="float" name="u_Radius">
+					<row>
+						<value>0.100000001</value>
+					</row>
+				</variable>
+				<variable type="float3" name="u_SphereCenter">
+					<row>
+						<value>0</value>
+						<value>0.300000012</value>
+						<value>0</value>
+					</row>
+				</variable>
+				<variable type="float" name="u_Blend">
+					<row>
+						<value>0</value>
+					</row>
+				</variable>
+				<variable type="float3" name="u_LightPos">
+					<row>
+						<value>3.70000005</value>
+						<value>8.69999981</value>
+						<value>-12.5</value>
+					</row>
+				</variable>
+				<variable type="float" name="u_Smoothness">
+					<row>
+						<value>0.709999979</value>
+					</row>
+				</variable>
+				<variable type="float3x3" name="u_CubeTransform">
+					<row>
+						<value>0</value>
+						<value>-0.200000003</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0.0700000003</value>
+						<value>0.270000011</value>
+						<value>0.0700000003</value>
+					</row>
+				</variable>
+				<variable type="float" name="u_CubeRoundess">
+					<row>
+						<value>0</value>
+					</row>
+				</variable>
+				<variable type="float3" name="u_BaseCol">
+					<row>
+						<value>1</value>
+						<value>0.0530973673</value>
+						<value>0.0530973673</value>
+					</row>
+				</variable>
+				<variable type="float3x3" name="u_PrismTransform">
+					<row>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>1.27999997</value>
+						<value>0.129999995</value>
+						<value>0.340000004</value>
+					</row>
+				</variable>
+				<variable type="float3x3" name="u_RoundConeTransform">
+					<row>
+						<value>0</value>
+						<value>-0.00999999978</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0.0299999993</value>
+						<value>0.0900000036</value>
+						<value>0.550000012</value>
+					</row>
+				</variable>
+				<variable type="float3x3" name="u_TriangleTransform">
+					<row>
+						<value>0</value>
+						<value>0.620000005</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0</value>
+						<value>0</value>
+						<value>0</value>
+					</row>
+					<row>
+						<value>0.370000005</value>
+						<value>0.140000001</value>
+						<value>0.0599999987</value>
+					</row>
+				</variable>
+				<variable type="float" name="SHD_Time" system="Time" />
+			</variables>
+			<macros />
+		</pass>
+	</pipeline>
+	<objects />
+	<cameras />
+	<settings>
+		<entry type="property" name="Simple" item="pipe" />
+		<entry type="pinned" name="u_CubeTransform" owner="Simple" />
+		<entry type="pinned" name="u_CubeRoundess" owner="Simple" />
+		<entry type="pinned" name="u_BaseCol" owner="Simple" />
+		<entry type="pinned" name="u_Radius" owner="Simple" />
+		<entry type="pinned" name="u_Blend" owner="Simple" />
+		<entry type="pinned" name="u_LightPos" owner="Simple" />
+		<entry type="pinned" name="u_RoundConeTransform" owner="Simple" />
+		<entry type="pinned" name="u_TriangleTransform" owner="Simple" />
+		<entry type="pinned" name="u_SphereCenter" owner="Simple" />
+		<entry type="camera" fp="false">
+			<distance>8</distance>
+			<pitch>0</pitch>
+			<yaw>346</yaw>
+			<roll>360</roll>
+		</entry>
+		<entry type="clearcolor" r="0" g="0" b="0" a="0" />
+		<entry type="usealpha" val="false" />
+	</settings>
+	<plugindata />
+</project>
